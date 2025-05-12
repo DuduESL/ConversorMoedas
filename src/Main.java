@@ -14,7 +14,7 @@ public class Main {
     private static final String API_URL = "https://open.er-api.com/v6/latest/";
     private static final Gson gson = new Gson();
 
-    // Classe auxiliar para desserializar a resposta JSON
+
     private static class ExchangeRateResponse {
         public String result;
         @SerializedName("base_code")
@@ -31,7 +31,7 @@ public class Main {
             exibirMenu();
             System.out.print("Escolha uma opção: ");
             escolha = scanner.nextInt();
-            scanner.nextLine(); // Consumir a quebra de linha
+            scanner.nextLine();
 
             switch (escolha) {
                 case 1:
@@ -58,7 +58,7 @@ public class Main {
                 default:
                     System.out.println("Opção inválida.");
             }
-            System.out.println(); // Adiciona uma linha em branco para melhor visualização
+            System.out.println();
         } while (escolha != 0);
 
         scanner.close();
@@ -78,7 +78,7 @@ public class Main {
     private static void realizarConversao(Scanner scanner, String moedaOrigem, String moedaDestino) {
         System.out.printf("Digite o valor em %s: ", moedaOrigem);
         double valorOrigem = scanner.nextDouble();
-        scanner.nextLine(); // Consumir a quebra de linha
+        scanner.nextLine();
 
         try {
             double taxaCambio = obterTaxaCambio(moedaOrigem, moedaDestino);
